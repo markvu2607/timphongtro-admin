@@ -1,0 +1,5 @@
+services:
+  admin:
+    image: markvu2607/timphongtro-admin
+    ports:
+      - "3000:80"

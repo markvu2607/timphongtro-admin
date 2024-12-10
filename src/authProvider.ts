@@ -1,35 +1,35 @@
-import { AuthProvider, HttpError } from "react-admin";
-import data from "./users.json";
+import { AuthProvider } from "react-admin";
+import apiClient from "./api-client";
 
-/**
- * This authProvider is only for test purposes. Don't use it in production.
- */
 export const authProvider: AuthProvider = {
-  login: ({ username, password }) => {
-    const user = data.users.find(
-      (u) => u.username === username && u.password === password,
-    );
+  login: async ({ username, password }) => {
+    try {
+      const response = await apiClient.post("/auth/sign-in", {
+        email: username,
+        password,
+      });
 
-    if (user) {
-      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-      let { password, ...userToPersist } = user;
-      localStorage.setItem("user", JSON.stringify(userToPersist));
+      if (response.status !== 200) {
+        return Promise.reject("Login failed");
+      }
+
+      const { user, accessToken } = response.data;
+
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("accessToken", accessToken);
       return Promise.resolve();
+    } catch (error) {
+      return Promise.reject("Login failed");
     }
-
-    return Promise.reject(
-      new HttpError("Unauthorized", 401, {
-        message: "Invalid username or password",
-      }),
-    );
   },
   logout: () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("accessToken");
     return Promise.resolve();
   },
   checkError: () => Promise.resolve(),
   checkAuth: () =>
-    localStorage.getItem("user") ? Promise.resolve() : Promise.reject(),
+    localStorage.getItem("accessToken") ? Promise.resolve() : Promise.reject(),
   getPermissions: () => {
     return Promise.resolve(undefined);
   },
@@ -37,7 +37,11 @@ export const authProvider: AuthProvider = {
     const persistedUser = localStorage.getItem("user");
     const user = persistedUser ? JSON.parse(persistedUser) : null;
 
-    return Promise.resolve(user);
+    return Promise.resolve({
+      id: "",
+      fullName: user.name,
+      avatar: user.avatar,
+    });
   },
 };
 
