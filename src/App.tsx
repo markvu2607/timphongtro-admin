@@ -1,13 +1,23 @@
-import {
-  Admin,
-  Resource,
-  ListGuesser,
-  EditGuesser,
-  ShowGuesser,
-} from "react-admin";
+import { Admin, Resource } from "react-admin";
 import { Layout } from "./Layout";
 import { dataProvider } from "./dataProvider";
 import { authProvider } from "./authProvider";
+import { UserList, UserCreate, UserEdit, UserShow } from "./users";
+import {
+  ProvinceCreate,
+  ProvinceShow,
+  ProvinceList,
+  ProvinceEdit,
+} from "./provinces";
+import { ReportCreate, ReportShow, ReportList, ReportEdit } from "./reports";
+import {
+  DistrictCreate,
+  DistrictShow,
+  DistrictList,
+  DistrictEdit,
+} from "./districts";
+import { NewsCreate, NewsShow, NewsList, NewsEdit } from "./news";
+import { PostCreate, PostShow, PostList, PostEdit } from "./posts";
 
 export const App = () => (
   <Admin
@@ -17,9 +27,45 @@ export const App = () => (
   >
     <Resource
       name="users"
-      list={ListGuesser}
-      edit={EditGuesser}
-      show={ShowGuesser}
+      list={UserList}
+      create={UserCreate}
+      edit={UserEdit}
+      show={UserShow}
+    />
+    <Resource
+      name="posts"
+      list={PostList}
+      create={PostCreate}
+      edit={PostEdit}
+      show={PostShow}
+    />
+    <Resource
+      name="provinces"
+      list={ProvinceList}
+      create={ProvinceCreate}
+      edit={ProvinceEdit}
+      show={ProvinceShow}
+    />
+    <Resource
+      name="districts"
+      list={DistrictList}
+      create={DistrictCreate}
+      edit={DistrictEdit}
+      show={DistrictShow}
+    />
+    <Resource
+      name="reports"
+      list={ReportList}
+      create={ReportCreate}
+      edit={ReportEdit}
+      show={ReportShow}
+    />
+    <Resource
+      name="news"
+      list={NewsList}
+      create={NewsCreate}
+      edit={NewsEdit}
+      show={NewsShow}
     />
   </Admin>
 );
