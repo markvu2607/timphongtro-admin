@@ -5,7 +5,7 @@ export const DistrictShow = () => (
     <SimpleShowLayout>
       <TextField source="id" />
       <TextField source="name" />
-      <TextField source="province.id" />
+      <TextField source="province.name" />
     </SimpleShowLayout>
   </Show>
 );

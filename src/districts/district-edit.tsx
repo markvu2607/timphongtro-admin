@@ -1,13 +1,27 @@
-import { DateInput, Edit, SimpleForm, TextInput } from "react-admin";
+import {
+  Edit,
+  ReferenceInput,
+  SelectInput,
+  SimpleForm,
+  TextInput,
+} from "react-admin";
 
 export const DistrictEdit = () => (
-  <Edit mutationMode="pessimistic">
+  <Edit
+    mutationMode="pessimistic"
+    transform={(data) => {
+      console.log(data);
+      const provinceId = data.province.id;
+      delete data.province;
+      return { ...data, provinceId };
+    }}
+  >
     <SimpleForm>
-      <TextInput source="id" />
+      <TextInput source="id" disabled />
       <TextInput source="name" />
-      <DateInput source="createdAt" />
-      <DateInput source="updatedAt" />
-      <TextInput source="deletedAt" />
+      <ReferenceInput source="province.id" reference="provinces">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );

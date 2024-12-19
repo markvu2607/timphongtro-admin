@@ -1,19 +1,22 @@
-import { DateInput, required } from "react-admin";
+import { ReferenceInput, required, SelectInput } from "react-admin";
 
 import { SimpleForm, TextInput } from "react-admin";
 
 import { Create } from "react-admin";
 
 export const DistrictCreate = () => (
-  <Create>
+  <Create
+    transform={(data) => {
+      const provinceId = data.province.id;
+      delete data.province;
+      return { ...data, provinceId };
+    }}
+  >
     <SimpleForm>
-      <TextInput source="title" validate={[required()]} />
-      <TextInput source="teaser" multiline={true} label="Short description" />
-      <DateInput
-        label="Publication date"
-        source="published_at"
-        defaultValue={new Date()}
-      />
+      <TextInput source="name" validate={[required()]} />
+      <ReferenceInput source="province.id" reference="provinces">
+        <SelectInput optionText="name" validate={[required()]} />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );

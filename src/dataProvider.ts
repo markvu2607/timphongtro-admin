@@ -33,7 +33,7 @@ export const dataProvider: DataProvider = {
   },
 
   update: async (resource, params) => {
-    const { data } = await apiClient.put(
+    const { data } = await apiClient.patch(
       `/${resource}/${params.id}`,
       params.data,
     );
@@ -42,7 +42,9 @@ export const dataProvider: DataProvider = {
 
   updateMany: async (resource, params) => {
     const responses = await Promise.all(
-      params.ids.map((id) => apiClient.put(`/${resource}/${id}`, params.data)),
+      params.ids.map((id) =>
+        apiClient.patch(`/${resource}/${id}`, params.data),
+      ),
     );
     return { data: responses.map((response) => response.data.id) };
   },
