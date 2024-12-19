@@ -9,6 +9,7 @@ import {
 
 export const ProvinceList = () => (
   <List
+    sort={{ field: "name", order: "ASC" }}
     filters={[<SearchInput key="q" source="q" alwaysOn />]}
     exporter={false}
   >
@@ -16,7 +17,7 @@ export const ProvinceList = () => (
       <TextField source="id" />
       <TextField source="name" />
       <EditButton />
-      <DeleteWithConfirmButton mutationMode="pessimistic" label="Delete" />
+      <DeleteWithConfirmButton mutationMode="pessimistic" />
     </Datagrid>
   </List>
 );

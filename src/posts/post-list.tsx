@@ -1,13 +1,33 @@
 import {
   Datagrid,
   DateField,
-  DeleteButton,
-  EditButton,
   List,
-  NumberField,
   SearchInput,
   TextField,
+  useRecordContext,
 } from "react-admin";
+import { Avatar, Box } from "@mui/material";
+
+import { ApproveButton, RejectButton } from "./buttons";
+
+const User = () => {
+  const record = useRecordContext();
+
+  if (!record) {
+    return null;
+  }
+
+  return (
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Avatar
+        src={record.user.avatar}
+        alt={record.user.name}
+        style={{ width: 32, height: 32 }}
+      />
+      <span style={{ marginLeft: "8px" }}>{record.user.name}</span>
+    </Box>
+  );
+};
 
 export const PostList = () => (
   <List
@@ -17,14 +37,19 @@ export const PostList = () => (
     <Datagrid>
       <TextField source="id" />
       <TextField source="title" />
-      <TextField source="description" />
       <DateField source="createdAt" />
+      <TextField source="status" />
       <TextField source="thumbnail" />
       <TextField source="address" />
-      <TextField source="district.id" />
-      <TextField source="province.id" />
-      <TextField source="user.id" />
-      {/* TODO: add publish button */}
+      <TextField source="district.name" />
+      <TextField source="province.name" />
+      <Box>
+        <User />
+      </Box>
+      <Box>
+        <ApproveButton />
+        <RejectButton />
+      </Box>
     </Datagrid>
   </List>
 );

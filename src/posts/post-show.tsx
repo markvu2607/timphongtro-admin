@@ -20,16 +20,13 @@ export const PostShow = () => (
       <TextField source="address" />
       <NumberField source="longitude" />
       <NumberField source="latitude" />
-      <TextField source="district.id" />
-      <TextField source="province.id" />
+      <TextField source="district.name" />
+      <TextField source="province.name" />
       <TextField source="user.id" />
       <ArrayField source="postImages">
         <Datagrid>
           <TextField source="id" />
           <UrlField source="url" />
-          <DateField source="createdAt" />
-          <DateField source="updatedAt" />
-          <TextField source="deletedAt" />
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>

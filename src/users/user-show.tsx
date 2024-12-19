@@ -14,7 +14,6 @@ export const UserShow = () => (
       <TextField source="name" />
       <TextField source="phone" />
       <BooleanField source="isVerified" />
-      <TextField source="avatar" />
     </SimpleShowLayout>
   </Show>
 );

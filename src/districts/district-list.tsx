@@ -1,6 +1,6 @@
 import {
   Datagrid,
-  DeleteButton,
+  DeleteWithConfirmButton,
   EditButton,
   List,
   SearchInput,
@@ -9,15 +9,16 @@ import {
 
 export const DistrictList = () => (
   <List
+    sort={{ field: "name", order: "ASC" }}
     filters={[<SearchInput key="q" source="q" alwaysOn />]}
     exporter={false}
   >
     <Datagrid>
       <TextField source="id" />
       <TextField source="name" />
-      <TextField source="province.id" />
+      <TextField source="province.name" />
       <EditButton />
-      <DeleteButton />
+      <DeleteWithConfirmButton mutationMode="pessimistic" />
     </Datagrid>
   </List>
 );
