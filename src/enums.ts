@@ -5,3 +5,9 @@ export const EPostStatus = {
   PUBLISHED: "PUBLISHED",
   CLOSED: "CLOSED",
 };
+
+export const EReportStatus = {
+  PENDING: "PENDING",
+  RESOLVED: "RESOLVED",
+  REJECTED: "REJECTED",
+};

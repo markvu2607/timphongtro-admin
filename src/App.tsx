@@ -9,7 +9,7 @@ import {
   ProvinceList,
   ProvinceEdit,
 } from "./provinces";
-import { ReportCreate, ReportShow, ReportList, ReportEdit } from "./reports";
+import { ReportCreate, ReportShow, ReportList } from "./reports";
 import {
   DistrictCreate,
   DistrictShow,
@@ -57,7 +57,6 @@ export const App = () => (
       name="reports"
       list={ReportList}
       create={ReportCreate}
-      edit={ReportEdit}
       show={ReportShow}
     />
     <Resource
