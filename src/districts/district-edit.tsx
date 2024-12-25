@@ -10,7 +10,6 @@ export const DistrictEdit = () => (
   <Edit
     mutationMode="pessimistic"
     transform={(data) => {
-      console.log(data);
       const provinceId = data.province.id;
       delete data.province;
       return { ...data, provinceId };
