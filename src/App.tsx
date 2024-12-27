@@ -40,6 +40,19 @@ export const App = () => (
       show={PostShow}
     />
     <Resource
+      name="reports"
+      list={ReportList}
+      create={ReportCreate}
+      show={ReportShow}
+    />
+    <Resource
+      name="news"
+      list={NewsList}
+      create={NewsCreate}
+      edit={NewsEdit}
+      show={NewsShow}
+    />
+    <Resource
       name="provinces"
       list={ProvinceList}
       create={ProvinceCreate}
@@ -52,19 +65,6 @@ export const App = () => (
       create={DistrictCreate}
       edit={DistrictEdit}
       show={DistrictShow}
-    />
-    <Resource
-      name="reports"
-      list={ReportList}
-      create={ReportCreate}
-      show={ReportShow}
-    />
-    <Resource
-      name="news"
-      list={NewsList}
-      create={NewsCreate}
-      edit={NewsEdit}
-      show={NewsShow}
     />
   </Admin>
 );

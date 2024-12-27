@@ -28,16 +28,70 @@ export const dataProvider: DataProvider = {
   },
 
   create: async (resource, params) => {
-    const { data } = await apiClient.post(`/${resource}`, params.data);
-    return { data };
+    switch (resource) {
+      case "news": {
+        const formData = new FormData();
+        formData.append("title", params.data.title);
+        formData.append("shortDescription", params.data.shortDescription);
+        formData.append("content", params.data.content);
+        if (params.data.provinceId) {
+          formData.append("provinceId", params.data.provinceId);
+        }
+        formData.append("thumbnail", params.data.thumbnail.rawFile);
+
+        const { data } = await apiClient.post(`/${resource}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        return { data };
+      }
+      default: {
+        const { data } = await apiClient.post(`/${resource}`, params.data);
+        return { data };
+      }
+    }
   },
 
   update: async (resource, params) => {
-    const { data } = await apiClient.patch(
-      `/${resource}/${params.id}`,
-      params.data,
-    );
-    return { data };
+    switch (resource) {
+      case "news": {
+        const formData = new FormData();
+        if (params.data.title) {
+          formData.append("title", params.data.title);
+        }
+        if (params.data.shortDescription) {
+          formData.append("shortDescription", params.data.shortDescription);
+        }
+        if (params.data.content) {
+          formData.append("content", params.data.content);
+        }
+        if (params.data.provinceId) {
+          formData.append("provinceId", params.data.provinceId);
+        }
+        if (params.data.thumbnail.rawFile) {
+          formData.append("thumbnail", params.data.thumbnail.rawFile);
+        }
+
+        const { data } = await apiClient.patch(
+          `/${resource}/${params.id}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          },
+        );
+        return { data };
+      }
+      default: {
+        const { data } = await apiClient.patch(
+          `/${resource}/${params.id}`,
+          params.data,
+        );
+        return { data };
+      }
+    }
   },
 
   updateMany: async (resource, params) => {

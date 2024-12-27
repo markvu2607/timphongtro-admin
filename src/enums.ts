@@ -11,3 +11,8 @@ export const EReportStatus = {
   RESOLVED: "RESOLVED",
   REJECTED: "REJECTED",
 };
+
+export const ENewsStatus = {
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+};

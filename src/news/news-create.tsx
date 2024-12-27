@@ -1,19 +1,48 @@
-import { DateInput, required } from "react-admin";
-
+import {
+  ImageInput,
+  ImageField,
+  required,
+  ReferenceInput,
+  SelectInput,
+} from "react-admin";
 import { SimpleForm, TextInput } from "react-admin";
-
 import { Create } from "react-admin";
 
+import { RichTextInput } from "./richtext-input";
+
 export const NewsCreate = () => (
-  <Create>
+  <Create
+    transform={(data) => {
+      const provinceId = data.province.id;
+      delete data.province;
+      return { ...data, provinceId };
+    }}
+  >
     <SimpleForm>
-      <TextInput source="title" validate={[required()]} />
-      <TextInput source="teaser" multiline={true} label="Short description" />
-      <DateInput
-        label="Publication date"
-        source="published_at"
-        defaultValue={new Date()}
+      <TextInput
+        source="title"
+        label="Title"
+        fullWidth
+        validate={[required()]}
       />
+
+      <TextInput
+        source="shortDescription"
+        multiline={true}
+        label="Short description"
+        fullWidth
+        validate={[required()]}
+      />
+
+      <ReferenceInput source="province.id" reference="provinces">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
+
+      <ImageInput source="thumbnail" label="Thumbnail" maxSize={5000000}>
+        <ImageField source="src" title="title" />
+      </ImageInput>
+
+      <RichTextInput source="content" label="Content" />
     </SimpleForm>
   </Create>
 );

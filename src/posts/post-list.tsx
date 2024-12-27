@@ -43,6 +43,7 @@ export const PostList = () => (
       <TextField source="address" />
       <TextField source="district.name" />
       <TextField source="province.name" />
+      <TextField source="paymentPackage.name" label="Gói tin" />
       <Box>
         <User />
       </Box>
