@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import {
   BooleanField,
   Datagrid,
@@ -5,23 +6,21 @@ import {
   List,
   SearchInput,
   TextField,
-  DeleteButton,
   EditButton,
-  useRecordContext,
+  WithRecord,
+  RaRecord,
+  DeleteWithConfirmButton,
 } from "react-admin";
 
-const UserField = () => {
-  const record = useRecordContext();
-  if (!record) return null;
-
+const UserField = ({ user }: { user: RaRecord }) => {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
       <img
-        src={record.avatar}
-        alt={record.name}
+        src={user.avatar}
+        alt={user.name}
         style={{ width: 40, height: 40, borderRadius: "50%" }}
       />
-      <span>{record.name}</span>
+      <span>{user.name}</span>
     </div>
   );
 };
@@ -33,13 +32,23 @@ export const UserList = () => (
     exporter={false}
   >
     <Datagrid>
-      <TextField source="id" />
+      <WithRecord
+        label="Id"
+        render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
+      />
       <EmailField source="email" />
-      <UserField />
+      <WithRecord
+        label="User"
+        render={(record) => <UserField user={record} />}
+      />
       <TextField source="phone" />
       <BooleanField source="isVerified" />
-      <EditButton />
-      <DeleteButton />
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
+      >
+        <EditButton />
+        <DeleteWithConfirmButton />
+      </Box>
     </Datagrid>
   </List>
 );

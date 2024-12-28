@@ -1,4 +1,10 @@
 import { Admin, Resource } from "react-admin";
+import PersonIcon from "@mui/icons-material/Person";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
+import FlagIcon from "@mui/icons-material/Flag";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
+import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+
 import { Layout } from "./Layout";
 import { dataProvider } from "./dataProvider";
 import { authProvider } from "./authProvider";
@@ -9,7 +15,7 @@ import {
   ProvinceList,
   ProvinceEdit,
 } from "./provinces";
-import { ReportCreate, ReportShow, ReportList } from "./reports";
+import { ReportList } from "./reports";
 import {
   DistrictCreate,
   DistrictShow,
@@ -17,7 +23,7 @@ import {
   DistrictEdit,
 } from "./districts";
 import { NewsCreate, NewsShow, NewsList, NewsEdit } from "./news";
-import { PostCreate, PostShow, PostList, PostEdit } from "./posts";
+import { PostShow, PostList } from "./posts";
 
 export const App = () => (
   <Admin
@@ -26,26 +32,22 @@ export const App = () => (
     authProvider={authProvider}
   >
     <Resource
+      icon={PersonIcon}
       name="users"
-      list={UserList}
       create={UserCreate}
+      list={UserList}
       edit={UserEdit}
       show={UserShow}
     />
     <Resource
+      icon={HistoryEduIcon}
       name="posts"
       list={PostList}
-      create={PostCreate}
-      edit={PostEdit}
       show={PostShow}
     />
+    <Resource icon={FlagIcon} name="reports" list={ReportList} />
     <Resource
-      name="reports"
-      list={ReportList}
-      create={ReportCreate}
-      show={ReportShow}
-    />
-    <Resource
+      icon={BorderColorIcon}
       name="news"
       list={NewsList}
       create={NewsCreate}
@@ -53,6 +55,7 @@ export const App = () => (
       show={NewsShow}
     />
     <Resource
+      icon={LocationSearchingIcon}
       name="provinces"
       list={ProvinceList}
       create={ProvinceCreate}
@@ -60,6 +63,7 @@ export const App = () => (
       show={ProvinceShow}
     />
     <Resource
+      icon={LocationSearchingIcon}
       name="districts"
       list={DistrictList}
       create={DistrictCreate}

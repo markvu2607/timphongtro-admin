@@ -5,7 +5,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useMutation } from "@tanstack/react-query";
 
 import apiClient from "../api-client";
-import { EReportStatus } from "../enums";
+import { EPostStatus, EReportStatus } from "../enums";
+import { WEB_URL } from "../env";
 
 export const ApproveButton = () => {
   const record = useRecordContext();
@@ -80,5 +81,27 @@ export const RejectButton = () => {
     <Button label="Reject" onClick={handleReject} disabled={isPending}>
       <CloseIcon />
     </Button>
+  );
+};
+
+export const ViewPostButton = () => {
+  const record = useRecordContext();
+
+  if (!record?.post || record?.post.status !== EPostStatus.PUBLISHED) {
+    return null;
+  }
+
+  return (
+    <Button
+      label="View Post"
+      onClick={(event) => {
+        event.stopPropagation();
+        window.open(
+          `${WEB_URL}/posts/${record?.post.id}`,
+          "_blank",
+          "noopener,noreferrer",
+        );
+      }}
+    />
   );
 };

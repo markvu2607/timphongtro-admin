@@ -5,6 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useMutation } from "@tanstack/react-query";
 import apiClient from "../api-client";
 import { ENewsStatus } from "../enums";
+import { WEB_URL } from "../env";
 
 export const PublishButton = () => {
   const record = useRecordContext();
@@ -79,5 +80,23 @@ export const UnpublishButton = () => {
     <Button label="Unpublish" onClick={handleUnpublish} disabled={isPending}>
       <CloseIcon />
     </Button>
+  );
+};
+
+export const ViewButton = () => {
+  const record = useRecordContext();
+
+  if (!record || record.status === ENewsStatus.DRAFT) {
+    return null;
+  }
+
+  return (
+    <Button
+      label="View"
+      onClick={(event) => {
+        event.stopPropagation();
+        window.open(`${WEB_URL}/news/${record.id}`);
+      }}
+    />
   );
 };

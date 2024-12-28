@@ -2,6 +2,7 @@ import {
   ArrayField,
   Datagrid,
   DateField,
+  ImageField,
   NumberField,
   Show,
   SimpleShowLayout,
@@ -14,9 +15,9 @@ export const PostShow = () => (
     <SimpleShowLayout>
       <TextField source="id" />
       <TextField source="title" />
-      <TextField source="description" />
+      <TextField source="description" component="pre" />
       <DateField source="createdAt" />
-      <TextField source="thumbnail" />
+      <ImageField source="thumbnail" />
       <TextField source="address" />
       <NumberField source="longitude" />
       <NumberField source="latitude" />
@@ -27,6 +28,7 @@ export const PostShow = () => (
         <Datagrid>
           <TextField source="id" />
           <UrlField source="url" />
+          <ImageField source="url" />
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>

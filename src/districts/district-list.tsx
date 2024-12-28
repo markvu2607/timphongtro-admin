@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import {
   Datagrid,
   DeleteWithConfirmButton,
@@ -5,6 +6,7 @@ import {
   List,
   SearchInput,
   TextField,
+  WithRecord,
 } from "react-admin";
 
 export const DistrictList = () => (
@@ -14,11 +16,23 @@ export const DistrictList = () => (
     exporter={false}
   >
     <Datagrid>
-      <TextField source="id" />
+      <WithRecord
+        label="Id"
+        render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
+      />
       <TextField source="name" />
       <TextField source="province.name" />
-      <EditButton />
-      <DeleteWithConfirmButton mutationMode="pessimistic" />
+      <Box
+        sx={{
+          width: "40px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "start",
+        }}
+      >
+        <EditButton />
+        <DeleteWithConfirmButton mutationMode="pessimistic" />
+      </Box>
     </Datagrid>
   </List>
 );

@@ -6,21 +6,51 @@ import {
   List,
   TextField,
   ImageField,
+  SearchInput,
+  WithRecord,
 } from "react-admin";
-import { PublishButton, UnpublishButton } from "./buttons";
+import { PublishButton, UnpublishButton, ViewButton } from "./buttons";
 
 export const NewsList = () => (
-  <List>
+  <List
+    filters={[<SearchInput key="q" source="q" alwaysOn />]}
+    exporter={false}
+  >
     <Datagrid>
-      <TextField source="id" />
+      <WithRecord
+        label="Id"
+        render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
+      />
       <TextField source="title" />
-      <TextField source="shortDescription" />
-      <ImageField source="thumbnail.src" />
+      <ImageField source="thumbnail.src" label="Thumbnail" />
       <TextField source="province.name" />
       <TextField source="status" />
-      <TextField source="createdAt" />
-      <TextField source="publishedAt" />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <WithRecord
+        label="Created At"
+        render={(record) =>
+          new Date(record.createdAt).toLocaleDateString("en-US", {
+            month: "2-digit",
+            day: "2-digit",
+            year: "numeric",
+          })
+        }
+      />
+      <WithRecord
+        label="Published At"
+        render={(record) =>
+          record.publishedAt
+            ? new Date(record.publishedAt).toLocaleDateString("en-US", {
+                month: "2-digit",
+                day: "2-digit",
+                year: "numeric",
+              })
+            : ""
+        }
+      />
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
+      >
+        <ViewButton />
         <PublishButton />
         <UnpublishButton />
         <EditButton />

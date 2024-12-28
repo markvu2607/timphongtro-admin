@@ -4,29 +4,42 @@ import {
   List,
   SearchInput,
   TextField,
+  WithRecord,
 } from "react-admin";
-import { ApproveButton, RejectButton } from "./buttons";
 import { Box } from "@mui/material";
 
-export const ReportList = () => (
-  <List
-    filters={[<SearchInput key="q" source="q" alwaysOn />]}
-    exporter={false}
-    actions={false}
-  >
-    <Datagrid>
-      <TextField source="id" />
-      <TextField source="reason" />
-      <TextField source="description" />
-      <TextField source="status" />
-      <TextField source="name" />
-      <TextField source="phone" />
-      <TextField source="postId" />
-      <Box>
-        <ApproveButton />
-        <RejectButton />
-        <DeleteButton />
-      </Box>
-    </Datagrid>
-  </List>
-);
+import { ApproveButton, RejectButton, ViewPostButton } from "./buttons";
+
+export const ReportList = () => {
+  return (
+    <List
+      filters={[<SearchInput key="q" source="q" alwaysOn />]}
+      exporter={false}
+      actions={false}
+    >
+      <Datagrid>
+        <WithRecord
+          label="Id"
+          render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
+        />
+        <TextField source="reason" />
+        <TextField source="description" />
+        <TextField source="status" />
+        <TextField source="name" label="Reporter" />
+        <TextField source="phone" />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "start",
+          }}
+        >
+          <ViewPostButton />
+          <ApproveButton />
+          <RejectButton />
+          <DeleteButton />
+        </Box>
+      </Datagrid>
+    </List>
+  );
+};
