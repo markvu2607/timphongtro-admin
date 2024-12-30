@@ -12,7 +12,7 @@ COPY . .
 ENV NODE_ENV=production
 RUN pnpm build
 
-FROM nginx:1.25-alpine as release
+FROM --platform=linux/amd64 nginx:1.25-alpine as release
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 
 EXPOSE 80
