@@ -20,8 +20,8 @@ export const DistrictList = () => (
         label="Id"
         render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
       />
-      <TextField source="name" />
-      <TextField source="province.name" />
+      <TextField source="name" label="Quận huyện" />
+      <TextField source="province.name" label="Tỉnh thành" />
       <Box
         sx={{
           width: "40px",

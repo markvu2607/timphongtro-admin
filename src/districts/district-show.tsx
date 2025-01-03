@@ -4,8 +4,8 @@ export const DistrictShow = () => (
   <Show>
     <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="name" />
-      <TextField source="province.name" />
+      <TextField source="name" label="Quận huyện" />
+      <TextField source="province.name" label="Tỉnh thành" />
     </SimpleShowLayout>
   </Show>
 );

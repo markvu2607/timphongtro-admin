@@ -26,6 +26,12 @@ importers:
       axios:
         specifier: ^1.7.8
         version: 1.7.8
+      ra-i18n-polyglot:
+        specifier: ^5.4.3
+        version: 5.4.3(react-dom@18.3.1(react@18.3.1))(react-hook-form@7.54.2(react@18.3.1))(react-router-dom@6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@6.28.0(react@18.3.1))(react@18.3.1)
+      ra-language-vietnamese:
+        specifier: ^3.0.1
+        version: 3.0.1
       react:
         specifier: ^18.3.0
         version: 18.3.1
@@ -1838,6 +1844,9 @@ packages:
 
   ra-language-english@5.4.3:
     resolution: {integrity: sha512-i53rYz1yMNv3a+GcJe/WZRhDJafmf935VeZM71fR9u1fptR0QMCHGSvY76aC63TUfKybXZerwx8x75d+5M5/EA==}
+
+  ra-language-vietnamese@3.0.1:
+    resolution: {integrity: sha512-j2K/YjREXiHfUjO+oQGFhHqelwu3JnmCGoJNA0vUcSDxh3shYIW9npJSyb/rZFiXliwWcgxumlgoPwkbasLnxQ==}
 
   ra-ui-materialui@5.4.3:
     resolution: {integrity: sha512-6Fhjtl+0NcPvlaLBz8W9TcUyCsKlEpobmk5HONiKD91sdIitinZyJeZl/ThaOTftZs7qDsoHJarmXLiLl017HA==}
@@ -4120,6 +4129,8 @@ snapshots:
       - react-hook-form
       - react-router
       - react-router-dom
+
+  ra-language-vietnamese@3.0.1: {}
 
   ra-ui-materialui@5.4.3(wnc2jgvwia4x2fsr5rn7jmqd44):
     dependencies:

@@ -35,19 +35,18 @@ export const PostList = () => (
         label="Id"
         render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
       />
-      <TextField source="title" />
-      <DateField source="createdAt" />
-      <TextField source="status" />
+      <TextField source="title" label="Tiêu đề" />
+      <DateField source="createdAt" label="Thời gian tạo" />
+      <TextField source="status" label="Trạng thái" />
       <WithRecord
-        label="Address"
+        label="Địa chỉ"
         render={(record) => <Box sx={{ width: "200px" }}>{record.address}</Box>}
       />
-      <TextField source="paymentPackage.name" label="Payment package" />
+      <TextField source="paymentPackage.name" label="Gói thanh toán" />
       <WithRecord
-        label="User"
+        label="Người dùng"
         render={(record) => <UserField user={record.user} />}
       />
-      <Box></Box>
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
       >

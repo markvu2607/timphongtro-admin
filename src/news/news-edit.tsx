@@ -17,7 +17,7 @@ export const NewsEdit = () => (
 
       <TextInput
         source="title"
-        label="Title"
+        label="Tiêu đề"
         fullWidth
         validate={[required()]}
       />
@@ -25,13 +25,13 @@ export const NewsEdit = () => (
       <TextInput
         source="shortDescription"
         multiline={true}
-        label="Short description"
+        label="Mô tả ngắn"
         fullWidth
         validate={[required()]}
       />
 
       <ReferenceInput source="province.id" reference="provinces">
-        <SelectInput optionText="name" />
+        <SelectInput optionText="name" label="Tỉnh thành" />
       </ReferenceInput>
 
       <ImageInput
@@ -43,11 +43,16 @@ export const NewsEdit = () => (
         <ImageField source="src" title="title" />
       </ImageInput>
 
-      <TextInput source="status" label="Status" fullWidth disabled />
-      <TextInput source="createdAt" label="Created at" fullWidth disabled />
-      <TextInput source="publishedAt" label="Published at" fullWidth disabled />
+      <TextInput source="status" label="Trạng thái" fullWidth disabled />
+      <TextInput source="createdAt" label="Thời gian tạo" fullWidth disabled />
+      <TextInput
+        source="publishedAt"
+        label="Thời gian đăng"
+        fullWidth
+        disabled
+      />
 
-      <RichTextInput source="content" label="Content" />
+      <RichTextInput source="content" label="Nội dung" />
     </SimpleForm>
   </Edit>
 );

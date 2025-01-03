@@ -21,12 +21,12 @@ export const NewsList = () => (
         label="Id"
         render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
       />
-      <TextField source="title" />
+      <TextField source="title" label="Tiêu đề" />
       <ImageField source="thumbnail.src" label="Thumbnail" />
-      <TextField source="province.name" />
-      <TextField source="status" />
+      <TextField source="province.name" label="Tỉnh thành" />
+      <TextField source="status" label="Trạng thái" />
       <WithRecord
-        label="Created At"
+        label="Thời gian tạo"
         render={(record) =>
           new Date(record.createdAt).toLocaleDateString("en-US", {
             month: "2-digit",
@@ -36,7 +36,7 @@ export const NewsList = () => (
         }
       />
       <WithRecord
-        label="Published At"
+        label="Thời gian đăng"
         render={(record) =>
           record.publishedAt
             ? new Date(record.publishedAt).toLocaleDateString("en-US", {

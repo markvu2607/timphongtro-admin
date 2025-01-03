@@ -21,7 +21,7 @@ export const NewsCreate = () => (
     <SimpleForm>
       <TextInput
         source="title"
-        label="Title"
+        label="Tiêu đề"
         fullWidth
         validate={[required()]}
       />
@@ -29,20 +29,20 @@ export const NewsCreate = () => (
       <TextInput
         source="shortDescription"
         multiline={true}
-        label="Short description"
+        label="Mô tả ngắn"
         fullWidth
         validate={[required()]}
       />
 
       <ReferenceInput source="province.id" reference="provinces">
-        <SelectInput optionText="name" />
+        <SelectInput optionText="name" label="Tỉnh thành" />
       </ReferenceInput>
 
       <ImageInput source="thumbnail" label="Thumbnail" maxSize={5000000}>
         <ImageField source="src" title="title" />
       </ImageInput>
 
-      <RichTextInput source="content" label="Content" />
+      <RichTextInput source="content" label="Nội dung" />
     </SimpleForm>
   </Create>
 );

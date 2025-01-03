@@ -5,9 +5,9 @@ export const UserEdit = () => (
     <SimpleForm>
       <TextInput source="id" disabled />
       <TextInput source="email" disabled />
-      <TextInput source="name" />
-      <TextInput source="phone" />
-      <BooleanInput source="isVerified" />
+      <TextInput source="name" label="Người dùng" />
+      <TextInput source="phone" label="Số điện thoại" />
+      <BooleanInput source="isVerified" label="Đã xác thực" />
     </SimpleForm>
   </Edit>
 );

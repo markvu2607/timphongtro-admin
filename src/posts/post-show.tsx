@@ -14,21 +14,20 @@ export const PostShow = () => (
   <Show>
     <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="title" />
-      <TextField source="description" component="pre" />
-      <DateField source="createdAt" />
-      <ImageField source="thumbnail" />
-      <TextField source="address" />
-      <NumberField source="longitude" />
-      <NumberField source="latitude" />
-      <TextField source="district.name" />
-      <TextField source="province.name" />
-      <TextField source="user.id" />
-      <ArrayField source="postImages">
+      <TextField source="title" label="Tiêu đề" />
+      <TextField source="description" component="pre" label="Mô tả" />
+      <DateField source="createdAt" label="Thời gian tạo" />
+      <TextField source="address" label="Địa chỉ" />
+      <NumberField source="longitude" label="Kinh độ" />
+      <NumberField source="latitude" label="Vĩ độ" />
+      <TextField source="province.name" label="Tỉnh thành" />
+      <TextField source="district.name" label="Quận huyện" />
+      <TextField source="user.id" label="Người đăng" />
+      <ArrayField source="postImages" label="Ảnh">
         <Datagrid>
           <TextField source="id" />
           <UrlField source="url" />
-          <ImageField source="url" />
+          <ImageField source="url" label="Ảnh" />
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>

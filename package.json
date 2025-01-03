@@ -16,6 +16,8 @@
     "@mui/material": "^6.1.10",
     "@tanstack/react-query": "^5.62.7",
     "axios": "^1.7.8",
+    "ra-i18n-polyglot": "^5.4.3",
+    "ra-language-vietnamese": "^3.0.1",
     "react": "^18.3.0",
     "react-admin": "^5.4.3",
     "react-datepicker": "^7.5.0",

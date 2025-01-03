@@ -4,7 +4,7 @@ export const ProvinceShow = () => (
   <Show>
     <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="name" />
+      <TextField source="name" label="Tỉnh thành" />
     </SimpleShowLayout>
   </Show>
 );

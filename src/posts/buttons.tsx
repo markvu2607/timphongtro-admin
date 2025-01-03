@@ -20,7 +20,7 @@ export const ApproveButton = () => {
       await apiClient.post(`/posts/${record.id}/approve`);
     },
     onSuccess: () => {
-      notify("Approved successfully", { type: "info" });
+      notify("Chấp thuận thành công", { type: "info" });
       refresh();
     },
     onError: (error: any) => {
@@ -39,7 +39,7 @@ export const ApproveButton = () => {
   }
 
   return (
-    <Button label="Approve" onClick={handleApprove} disabled={isPending}>
+    <Button label="Chấp thuận" onClick={handleApprove} disabled={isPending}>
       <CheckIcon />
     </Button>
   );
@@ -58,7 +58,7 @@ export const RejectButton = () => {
       await apiClient.post(`/posts/${record.id}/reject`);
     },
     onSuccess: () => {
-      notify("Rejected successfully", { type: "info" });
+      notify("Từ chối thành công", { type: "info" });
       refresh();
     },
     onError: (error: any) => {
@@ -77,7 +77,7 @@ export const RejectButton = () => {
   }
 
   return (
-    <Button label="Reject" onClick={handleReject} disabled={isPending}>
+    <Button label="Từ chối" onClick={handleReject} disabled={isPending}>
       <CloseIcon />
     </Button>
   );
@@ -92,7 +92,7 @@ export const ViewPostButton = () => {
 
   return (
     <Button
-      label="View"
+      label="Xem"
       onClick={() => {
         window.open(`${WEB_URL}/posts/${record.id}`, "_blank");
       }}

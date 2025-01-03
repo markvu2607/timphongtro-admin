@@ -21,7 +21,7 @@ export const ApproveButton = () => {
       await apiClient.post(`/reports/${record.id}/resolve`);
     },
     onSuccess: () => {
-      notify("Approved successfully", { type: "info" });
+      notify("Đã xử lý thành công", { type: "info" });
       refresh();
     },
     onError: (error: any) => {
@@ -40,7 +40,7 @@ export const ApproveButton = () => {
   }
 
   return (
-    <Button label="Resolved" onClick={handleClickResolved} disabled={isPending}>
+    <Button label="Đã xử lý" onClick={handleClickResolved} disabled={isPending}>
       <CheckIcon />
     </Button>
   );
@@ -59,7 +59,7 @@ export const RejectButton = () => {
       await apiClient.post(`/reports/${record.id}/reject`);
     },
     onSuccess: () => {
-      notify("Rejected successfully", { type: "info" });
+      notify("Đã từ chối thành công", { type: "info" });
       refresh();
     },
     onError: (error: any) => {
@@ -78,7 +78,7 @@ export const RejectButton = () => {
   }
 
   return (
-    <Button label="Reject" onClick={handleReject} disabled={isPending}>
+    <Button label="Từ chối" onClick={handleReject} disabled={isPending}>
       <CloseIcon />
     </Button>
   );
@@ -93,7 +93,7 @@ export const ViewPostButton = () => {
 
   return (
     <Button
-      label="View Post"
+      label="Xem bài viết"
       onClick={(event) => {
         event.stopPropagation();
         window.open(

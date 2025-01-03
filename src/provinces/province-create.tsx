@@ -8,7 +8,7 @@ export const ProvinceCreate = () => (
   <Create>
     <SimpleForm>
       <TextInput source="id" disabled />
-      <TextInput source="name" validate={[required()]} />
+      <TextInput source="name" label="Tỉnh thành" validate={[required()]} />
     </SimpleForm>
   </Create>
 );

@@ -13,9 +13,13 @@ export const DistrictCreate = () => (
     }}
   >
     <SimpleForm>
-      <TextInput source="name" validate={[required()]} />
+      <TextInput source="name" validate={[required()]} label="Quận huyện" />
       <ReferenceInput source="province.id" reference="provinces">
-        <SelectInput optionText="name" validate={[required()]} />
+        <SelectInput
+          optionText="name"
+          validate={[required()]}
+          label="Tỉnh thành"
+        />
       </ReferenceInput>
     </SimpleForm>
   </Create>

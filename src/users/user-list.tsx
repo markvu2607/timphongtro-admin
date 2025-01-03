@@ -38,11 +38,11 @@ export const UserList = () => (
       />
       <EmailField source="email" />
       <WithRecord
-        label="User"
+        label="Người dùng"
         render={(record) => <UserField user={record} />}
       />
-      <TextField source="phone" />
-      <BooleanField source="isVerified" />
+      <TextField source="phone" label="Số điện thoại" />
+      <BooleanField source="isVerified" label="Đã xác thực" />
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
       >

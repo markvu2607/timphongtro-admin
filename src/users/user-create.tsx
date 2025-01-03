@@ -8,9 +8,13 @@ export const UserCreate = () => (
   <Create>
     <SimpleForm>
       <TextInput source="email" validate={[required(), email()]} />
-      <TextInput source="password" validate={[required(), minLength(8)]} />
-      <TextInput source="name" validate={[required()]} />
-      <TextInput source="phone" validate={[required()]} />
+      <TextInput
+        source="password"
+        label="Mật khẩu"
+        validate={[required(), minLength(8)]}
+      />
+      <TextInput source="name" label="Tên người dùng" validate={[required()]} />
+      <TextInput source="phone" label="Số điện thoại" validate={[required()]} />
     </SimpleForm>
   </Create>
 );

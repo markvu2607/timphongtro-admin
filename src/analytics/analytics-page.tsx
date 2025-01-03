@@ -127,7 +127,6 @@ export const AnalyticsPage = () => {
                   dataKey="location"
                   height={30}
                   stroke="#8884d8"
-                  startIndex={0}
                   endIndex={Math.min(5, (analyticsData?.[1] || []).length)}
                 />
               </BarChart>
@@ -175,7 +174,6 @@ export const AnalyticsPage = () => {
                   dataKey="location"
                   height={30}
                   stroke="#8884d8"
-                  startIndex={0}
                   endIndex={Math.min(5, (analyticsData?.[1] || []).length)}
                 />
               </BarChart>

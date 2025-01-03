@@ -22,11 +22,11 @@ export const ReportList = () => {
           label="Id"
           render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
         />
-        <TextField source="reason" />
-        <TextField source="description" />
-        <TextField source="status" />
-        <TextField source="name" label="Reporter" />
-        <TextField source="phone" />
+        <TextField source="reason" label="Lý do" />
+        <TextField source="description" label="Mô tả chi tiết" />
+        <TextField source="status" label="Trạng thái" />
+        <TextField source="name" label="Người báo cáo" />
+        <TextField source="phone" label="Số điện thoại" />
         <Box
           sx={{
             display: "flex",

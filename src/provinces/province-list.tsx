@@ -20,7 +20,7 @@ export const ProvinceList = () => (
         label="Id"
         render={(record) => <Box sx={{ width: "100px" }}>{record.id}</Box>}
       />
-      <TextField source="name" />
+      <TextField source="name" label="Tỉnh thành" />
       <Box
         sx={{
           width: "40px",

@@ -17,9 +17,9 @@ export const DistrictEdit = () => (
   >
     <SimpleForm>
       <TextInput source="id" disabled />
-      <TextInput source="name" />
+      <TextInput source="name" label="Quận huyện" />
       <ReferenceInput source="province.id" reference="provinces">
-        <SelectInput optionText="name" />
+        <SelectInput optionText="name" label="Tỉnh thành" />
       </ReferenceInput>
     </SimpleForm>
   </Edit>

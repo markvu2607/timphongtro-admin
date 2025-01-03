@@ -4,7 +4,7 @@ export const ProvinceEdit = () => (
   <Edit mutationMode="pessimistic">
     <SimpleForm>
       <TextInput source="id" disabled />
-      <TextInput source="name" />
+      <TextInput source="name" label="Tỉnh thành" />
     </SimpleForm>
   </Edit>
 );

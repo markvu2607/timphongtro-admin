@@ -20,7 +20,7 @@ export const PublishButton = () => {
       await apiClient.post(`/news/${record.id}/publish`);
     },
     onSuccess: () => {
-      notify("Publish successfully", { type: "info" });
+      notify("Đăng bài thành công", { type: "info" });
       refresh();
     },
     onError: (error: any) => {
@@ -39,7 +39,7 @@ export const PublishButton = () => {
   }
 
   return (
-    <Button label="Publish" onClick={handlePublish} disabled={isPending}>
+    <Button label="Đăng bài" onClick={handlePublish} disabled={isPending}>
       <CheckIcon />
     </Button>
   );
@@ -58,7 +58,7 @@ export const UnpublishButton = () => {
       await apiClient.post(`/news/${record.id}/unpublish`);
     },
     onSuccess: () => {
-      notify("Unpublish successfully", { type: "info" });
+      notify("Bỏ đăng thành công", { type: "info" });
       refresh();
     },
     onError: (error: any) => {
@@ -77,7 +77,7 @@ export const UnpublishButton = () => {
   }
 
   return (
-    <Button label="Unpublish" onClick={handleUnpublish} disabled={isPending}>
+    <Button label="Bỏ đăng" onClick={handleUnpublish} disabled={isPending}>
       <CloseIcon />
     </Button>
   );
@@ -92,7 +92,7 @@ export const ViewButton = () => {
 
   return (
     <Button
-      label="View"
+      label="Xem"
       onClick={(event) => {
         event.stopPropagation();
         window.open(`${WEB_URL}/news/${record.id}`);
