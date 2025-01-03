@@ -40,6 +40,8 @@ export const AnalyticsPage = () => {
     provinceId: selectedProvince || undefined,
   });
 
+  console.log(analyticsData);
+
   const handleAnalyze = () => {
     refetch();
   };
@@ -127,7 +129,7 @@ export const AnalyticsPage = () => {
                   dataKey="location"
                   height={30}
                   stroke="#8884d8"
-                  endIndex={Math.min(5, (analyticsData?.[1] || []).length)}
+                  endIndex={5}
                 />
               </BarChart>
             </ResponsiveContainer>
@@ -136,7 +138,7 @@ export const AnalyticsPage = () => {
             component="p"
             sx={{ fontSize: "20px", fontWeight: "bold" }}
           >
-            Tổng doanh thu: {totalIncome}
+            Tổng doanh thu: {totalIncome / 1000000} triệu
           </Typography>
         </Stack>
 
@@ -160,7 +162,15 @@ export const AnalyticsPage = () => {
               </LineChart>
             </ResponsiveContainer>
             <ResponsiveContainer height={300}>
-              <BarChart data={analyticsData?.[3] || []} layout="vertical">
+              <BarChart
+                data={
+                  analyticsData?.[3].map((data) => ({
+                    ...data,
+                    postCount: Number(data.postCount),
+                  })) || []
+                }
+                layout="vertical"
+              >
                 <Bar dataKey="postCount" fill="#8884d8" />
                 <CartesianGrid />
                 <YAxis
@@ -174,7 +184,7 @@ export const AnalyticsPage = () => {
                   dataKey="location"
                   height={30}
                   stroke="#8884d8"
-                  endIndex={Math.min(5, (analyticsData?.[1] || []).length)}
+                  endIndex={5}
                 />
               </BarChart>
             </ResponsiveContainer>
