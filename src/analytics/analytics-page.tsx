@@ -125,12 +125,7 @@ export const AnalyticsPage = () => {
                   tickFormatter={(value) => `${value / 1000000}tr`}
                 />
                 <Tooltip />
-                <Brush
-                  dataKey="location"
-                  height={30}
-                  stroke="#8884d8"
-                  endIndex={5}
-                />
+                <Brush dataKey="location" height={30} stroke="#8884d8" />
               </BarChart>
             </ResponsiveContainer>
           </Box>
@@ -180,12 +175,7 @@ export const AnalyticsPage = () => {
                 />
                 <XAxis type="number" />
                 <Tooltip />
-                <Brush
-                  dataKey="location"
-                  height={30}
-                  stroke="#8884d8"
-                  endIndex={5}
-                />
+                <Brush dataKey="location" height={30} stroke="#8884d8" />
               </BarChart>
             </ResponsiveContainer>
           </Box>
