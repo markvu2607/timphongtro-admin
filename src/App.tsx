@@ -1,35 +1,39 @@
-import { Admin, Resource } from "react-admin";
-import PersonIcon from "@mui/icons-material/Person";
-import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
-import FlagIcon from "@mui/icons-material/Flag";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import FlagIcon from "@mui/icons-material/Flag";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+import PersonIcon from "@mui/icons-material/Person";
+import { Admin, CustomRoutes, Resource } from "react-admin";
+import { Route } from "react-router-dom";
 
 import { Layout } from "./Layout";
-import { dataProvider } from "./dataProvider";
+import { AnalyticsPage } from "./analytics";
 import { authProvider } from "./authProvider";
-import { UserList, UserCreate, UserEdit, UserShow } from "./users";
-import {
-  ProvinceCreate,
-  ProvinceShow,
-  ProvinceList,
-  ProvinceEdit,
-} from "./provinces";
-import { ReportList } from "./reports";
+import { DashboardPage } from "./dashboard";
+import { dataProvider } from "./dataProvider";
 import {
   DistrictCreate,
-  DistrictShow,
-  DistrictList,
   DistrictEdit,
+  DistrictList,
+  DistrictShow,
 } from "./districts";
-import { NewsCreate, NewsShow, NewsList, NewsEdit } from "./news";
-import { PostShow, PostList } from "./posts";
+import { NewsCreate, NewsEdit, NewsList, NewsShow } from "./news";
+import { PostList, PostShow } from "./posts";
+import {
+  ProvinceCreate,
+  ProvinceEdit,
+  ProvinceList,
+  ProvinceShow,
+} from "./provinces";
+import { ReportList } from "./reports";
+import { UserCreate, UserEdit, UserList, UserShow } from "./users";
 
 export const App = () => (
   <Admin
     layout={Layout}
     dataProvider={dataProvider}
     authProvider={authProvider}
+    dashboard={DashboardPage}
   >
     <Resource
       icon={PersonIcon}
@@ -70,5 +74,8 @@ export const App = () => (
       edit={DistrictEdit}
       show={DistrictShow}
     />
+    <CustomRoutes>
+      <Route path="/analytics" element={<AnalyticsPage />} />
+    </CustomRoutes>
   </Admin>
 );

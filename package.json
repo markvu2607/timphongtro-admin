@@ -17,10 +17,13 @@
     "@tanstack/react-query": "^5.62.7",
     "axios": "^1.7.8",
     "react": "^18.3.0",
-    "react-admin": "^5.2.0",
+    "react-admin": "^5.4.3",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.3.0",
     "react-hook-form": "^7.54.2",
-    "react-quill": "^2.0.0"
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.22.0",
+    "recharts": "^2.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.7",
