@@ -7,7 +7,7 @@ export const CustomMenu = () => {
       <Menu.ResourceItems />
       <Menu.Item
         to="/analytics"
-        primaryText="Thống kê"
+        primaryText="Xem thống kê"
         leftIcon={<AnalyticsIcon />}
       />
     </Menu>
